@@ -28,8 +28,95 @@
  *   and how to use it in JS. You will also need to download a sound bite
  */
 
- $(function(){
+ var numShotsOne = 0;
+ var numGoalsOne = 0;
+ var randomNumberOne = 0;
+ var numShotsTwo = 0;
+ var numGoalsTwo = 0;
+ var randomNumberTwo = 0;
+ var numreset = 0;
+ 
+  $(function(){
 
+  	//team one
+	$("#teamone-shoot").click(function(){
+		//generate a random number between 1 and 11
+		randomNumberOne = Math.floor((Math.random() * 11) + 1);
+		
+			//goal made
+    	if (randomNumberOne == 10){
+    		//incerment shots by 1
+    		numShotsOne++;
+    		$("#teamone-numshots").html(numShotsOne);
+    		//increment goals by 1
+    		numGoalsOne++;
+    		$("#teamone-numhits").html(numGoalsOne);
+    		//change background color to red
+    		$("html").css("background-color", "red");
+    		//play audio on goal
+    		document.getElementById('audioGoal').play(); 
 
+    		//shot missed	
+    	}else{
+    		//increment shots by 1
+    		numShotsOne++;
+    		$("#teamone-numshots").html(numShotsOne);
+    		//play audio on miss
+    		document.getElementById('audioMiss').play();
+    	};
+    });
 
+    //team two
+    $("#teamtwo-shoot").click(function(){
+    	//generate random number
+		randomNumberTwo = Math.floor((Math.random() * 11) + 1);
+		
+		//shot good
+    	if (randomNumberTwo == 10){
+    		//increment shots by 1
+    		numShotsTwo++;
+    		$("#teamtwo-numshots").html(numShotsTwo);
+
+    		//increment goals by 1
+    		numGoalsTwo++;
+    		$("#teamtwo-numhits").html(numGoalsTwo);
+
+    		//change background to blue
+    		$("html").css("background-color", "blue");
+
+    		//play audio on goal
+    		document.getElementById('audioAway').play();
+
+    		//shot miss  	
+    	}else{
+    		//increment shots by 1
+    		numShotsTwo++;
+    		$("#teamtwo-numshots").html(numShotsTwo);
+    		//play audio on miss
+    		document.getElementById('audioMiss').play();
+    	};
+    });
+    	//click reset button
+    $("#reset").click(function(){
+    	//change all variables to 0
+    	numShotsTwo = 0;
+    	numShotsOne = 0;
+    	numGoalsOne = 0;
+    	numGoalsTwo = 0;
+
+    	//increment reset count by 1
+    	numreset++;
+
+    	//update html text
+    	$("#teamtwo-numshots").html(numShotsTwo);
+    	$("#teamtwo-numhits").html(numGoalsTwo);
+    	$("#teamone-numhits").html(numGoalsOne);
+    	$("#teamone-numshots").html(numShotsOne);
+    	$("#num-resets").html(numreset);
+
+    	//change background back to white
+    	$("html").css("background-color", "white");
+
+    });
+    
  })

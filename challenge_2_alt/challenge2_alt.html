@@ -22,13 +22,16 @@
     <h1 style="margin-bottom:5px">Hockey, JavaScript, and jQuery oh My!</h1>
     <h2 style="margin-top: 0">...the game!</h2>
     <div style="margin: 0 auto;text-align:center">
+    <audio id="audioGoal" src="audio/goal.mp3" preload="auto"></audio>
+    <audio id="audioMiss" src="audio/shotMiss.mp3" preload="auto"></audio>
+    <audio id="audioAway" src="audio/nhl_goal.mp3" preload="auto"></audio>
       <button id="reset">RESET</button><br>
       NUMBER OF RESETS: <span id="num-resets">0</span>
     </div>
     <div class="clear"></div>
     <div class="left">
       <h2>
-        Team 1
+        Home Team
       </h2>
       <div class="hits">
         SHOTS TAKEN: <span id="teamone-numshots">0</span><br>
@@ -40,7 +43,7 @@
     </div>
     <div class="right">
       <h2>
-        Team 2
+        Away Team
       </h2>
       <div class="hits">
         SHOTS TAKEN: <span id="teamtwo-numshots">0</span><br>
@@ -52,6 +55,7 @@
     </div>
     <div class="clear"></div>
   </div>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="challenge2_alt.js"></script>
 </body>
 </html>
